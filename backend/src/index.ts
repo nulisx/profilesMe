@@ -11,13 +11,24 @@ import { mongoDB } from './config/database';
 
 const app = express();
 
+const FRONTEND_URL = process.env.FRONTEND_URL || 
+  (process.env.REPLIT_DEV_DOMAIN ? `https://${process.env.REPLIT_DEV_DOMAIN}` : 'http://localhost:5000');
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
+  origin: FRONTEND_URL,
   credentials: true
 }));
 app.use(express.json());
+
+const SESSION_SECRET = process.env.SESSION_SECRET || 'dev-session-secret-please-change';
+const JWT_SECRET = process.env.JWT_SECRET || 'dev-jwt-secret-please-change';
+
+if (!process.env.SESSION_SECRET || !process.env.JWT_SECRET) {
+  console.warn('Warning: Using default secrets. Set SESSION_SECRET and JWT_SECRET in Replit Secrets for production.');
+}
+
 app.use(session({
-  secret: process.env.SESSION_SECRET!,
+  secret: SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {

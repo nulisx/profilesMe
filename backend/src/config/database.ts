@@ -13,5 +13,10 @@ export const pool = mysql.createPool({
 
 
 export const mongoDB = () => {
-  mongoose.connect(process.env.MONGO , {dbName: 'link_platform'}).then(() => {console.log('MonogDB connected')})
+  const MONGO_URI = process.env.MONGO || 'mongodb://127.0.0.1:27017';
+  mongoose.connect(MONGO_URI, {dbName: 'link_platform'}).then(() => {
+    console.log('MongoDB connected to', MONGO_URI);
+  }).catch((err) => {
+    console.error('MongoDB connection error:', err);
+  });
 }
