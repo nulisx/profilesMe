@@ -1,7 +1,7 @@
-# ProfilesMe - Replit Setup Documentation
+# Drugs.Rip - Replit Setup Documentation
 
 ## Overview
-ProfilesMe is a profile builder platform similar to `guns.lol` that allows users to create a single, comprehensive profile link to showcase all their online presence.
+Drugs.Rip is a profile builder platform similar to `guns.lol` that allows users to create a single, comprehensive profile link to showcase all their online presence.
 
 ## Project Architecture
 
@@ -18,8 +18,7 @@ ProfilesMe is a profile builder platform similar to `guns.lol` that allows users
 **Backend:**
 - Node.js with Express
 - TypeScript
-- MongoDB (Mongoose)
-- Passport.js with Google OAuth
+- MariaDB (MySQL2)
 - JWT for authentication
 - Multer for file uploads
 

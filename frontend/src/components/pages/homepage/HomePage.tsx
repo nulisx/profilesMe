@@ -112,28 +112,7 @@ export const HomePage: React.FC = () => {
       <nav className="absolute top-0 w-full p-6 animate-fade-in">
           <div className="container mx-auto flex justify-between items-center">
             <div className="text-2xl font-bold hover:text-purple-400 scroll-smooth">
-              ProfilesMe
-            </div>
-            <div className="flex items-center gap-4">
-            <Button
-                  onClick={apiService.googleLogin}
-                  className="bg-white text-gray-600 hover:bg-gray-50 border border-gray-200 h-12 pr-2"
-                >
-                  {/* <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" /> */}
-
-                  {/* <img
-                    src="/api/placeholder/18/18"
-                    alt="Google"
-                    className="mr-2 h-4 w-4"
-                  /> */}
-                  Sign in
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" className="mr-2">
-            <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
-            <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
-            <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
-            <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.801 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
-          </svg>
-                </Button>
+              Drugs.Rip
             </div>
           </div>
         </nav>
@@ -172,7 +151,7 @@ export const HomePage: React.FC = () => {
               <Card className="p-0.5 backdrop-blur-xl border border-gray-700 rounded-xl max-w-2xl bg-black/60 shadow-2xl">
       <div className="flex items-center">
         <div className="text-violet-300 font-bold text-sm bg-gray-900/50 p-3 rounded-l-lg px-0 pl-3 pr-1" >
-          profilesme.site/
+          drugs.rip/
         </div>
         <Input
           value={username}
@@ -181,7 +160,7 @@ export const HomePage: React.FC = () => {
           className="flex-1 bg-gray-900/40 border border-gray-700 text-white  placeholder-gray-500 -ml-[1px] min-w-2 pl-1"
         />
         <Button
-          onClick={() => apiService.googleLogin()}
+          onClick={() => window.location.href = '/dashboard'}
           className="bg-gradient-to-r from-violet-700 to-purple-600 text-white font-semibold px-6 py-3 hover:opacity-90  transition-all"
         >
           Claim Now

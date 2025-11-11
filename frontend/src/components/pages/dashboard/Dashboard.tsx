@@ -243,7 +243,7 @@ export const Dashboard: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-600">
       <div className="w-full bg-white dark:bg-black shadow-sm">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-semibold">ProfilesMe Dashboard</h1>
+          <h1 className="text-xl font-semibold">Drugs.Rip Dashboard</h1>
           <Button
             variant="ghost"
             onClick={handleLogout}

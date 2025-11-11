@@ -1,6 +1,6 @@
-# ProfilesMe
+# Drugs.Rip
 
-### ProfilesMe is a profile builder platform similar to `guns.lol` that allows users to create a single, comprehensive profile link to showcase all their online presence.
+### Drugs.Rip is a profile builder platform similar to `guns.lol` that allows users to create a single, comprehensive profile link to showcase all their online presence.
 ![Screenshot from 2024-11-21 21-20-29](https://github.com/user-attachments/assets/f4e917d9-9767-45ea-8e7e-17437ef6804e)
 
 
@@ -30,9 +30,7 @@
 - TypeScript
 - NodeJS
 - Express
-- MySQL
-- MongoDB
-- Google OAuth
+- MariaDB
 
 ## Getting Started
 
@@ -45,24 +43,21 @@
 
 1. Clone the repository
 ```bash
-git clone https://github.com/sadanandmiskin/profilesme.git
+git clone https://github.com/sadanandmiskin/drugsrip.git
 ```
 
 
 
 - Create a `.env` file in `/backend` with:
 ```bash
-DB_HOST=  #Mysql
+DB_HOST=
 DB_USER=
 DB_PASSWORD=
 DB_NAME=
 PORT=
-GOOGLE_CLIENT_ID=  #get it from google cloud console
-GOOGLE_CLIENT_SECRET=
-JWT_SECRET=  # Random String
-SESSION_SECRET=  # Random String
+JWT_SECRET=
+SESSION_SECRET=
 FRONTEND_URL=
-MONGO=mongodb://mongo:27017   #mongo uri
 ```
 
 
@@ -70,7 +65,7 @@ MONGO=mongodb://mongo:27017   #mongo uri
 - First Install docker and docker compose.
 - Then:
 ```bash
-cd profilesMe
+cd drugsrip
 ```
 - Run the whole app container
 ```bash
