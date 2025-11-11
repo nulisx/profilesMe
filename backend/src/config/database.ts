@@ -1,6 +1,4 @@
-import mongoose from 'mongoose';
 import mysql from 'mysql2/promise';
-
 
 export const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -11,12 +9,13 @@ export const pool = mysql.createPool({
   connectionLimit: 10,
 });
 
-
-export const mongoDB = () => {
-  const MONGO_URI = process.env.MONGO || 'mongodb://127.0.0.1:27017';
-  mongoose.connect(MONGO_URI, {dbName: 'link_platform'}).then(() => {
-    console.log('MongoDB connected to', MONGO_URI);
-  }).catch((err) => {
-    console.error('MongoDB connection error:', err);
-  });
-}
+export const initializeDatabase = async () => {
+  try {
+    const connection = await pool.getConnection();
+    console.log('MariaDB connected successfully');
+    connection.release();
+  } catch (err) {
+    console.error('MariaDB connection error:', err);
+    throw err;
+  }
+};
