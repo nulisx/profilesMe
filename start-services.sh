@@ -1,6 +1,19 @@
 #!/bin/bash
 set -e
 
+# Start MariaDB if not already running
+if ! pgrep -x "mariadbd" > /dev/null; then
+    echo "Starting MariaDB..."
+    mkdir -p /tmp/mariadb
+    mysql_install_db --datadir=/tmp/mariadb --user=$(whoami) 2>/dev/null || true
+    mariadbd --datadir=/tmp/mariadb --socket=/tmp/mariadb.sock --skip-networking=0 --bind-address=127.0.0.1 &
+    sleep 3
+    echo "MariaDB started successfully"
+    
+    echo "Initializing database..."
+    mysql -u root --socket=/tmp/mariadb.sock < backend/link_platform.sql 2>/dev/null || echo "Database already initialized"
+fi
+
 # Start MongoDB if not already running
 if ! pgrep -x "mongod" > /dev/null; then
     echo "Starting MongoDB..."

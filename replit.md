@@ -18,7 +18,8 @@ Drugs.Rip is a profile builder platform similar to `guns.lol` that allows users 
 **Backend:**
 - Node.js with Express
 - TypeScript
-- MariaDB (MySQL2)
+- MongoDB (Mongoose) - User profiles and links with auto-incrementing IDs
+- MariaDB (MySQL2) - Additional data storage
 - JWT for authentication
 - Multer for file uploads
 
@@ -44,7 +45,34 @@ Drugs.Rip is a profile builder platform similar to `guns.lol` that allows users 
 └── start-services.sh   # Startup script
 ```
 
-## Recent Changes (November 11, 2025)
+## Recent Changes
+
+### November 12, 2025 - Project Import Completed
+1. **Node.js Installation**: Node.js 20 was already installed
+2. **Database Setup**:
+   - Installed MongoDB via Nix system packages
+   - Installed MariaDB via Nix system packages  
+   - Updated `start-services.sh` to start both MariaDB and MongoDB
+   - Configured MariaDB to use socket file at `/tmp/mariadb.sock`
+   - Auto-initializes link_platform database on first run
+3. **Backend Updates**:
+   - Added `mongoDB()` connection function to `backend/src/config/database.ts`
+   - Updated database pool configuration to use MariaDB socket instead of TCP
+   - Backend successfully builds and runs, connecting to both databases
+4. **NPM Dependencies**:
+   - Installed all frontend dependencies (794 packages)
+   - Installed all backend dependencies (414 packages)
+5. **Workflow Configuration**:
+   - Workflow configured to run `bash start-services.sh`
+   - Frontend on port 5000 (webview)
+   - Backend on port 3000
+6. **Verification**:
+   - Backend TypeScript compiles successfully with no errors
+   - MongoDB connects successfully
+   - MariaDB starts and initializes successfully
+   - All services verified to start correctly
+
+### November 11, 2025
 
 ### Replit Environment Setup
 1. **Dependencies Installation**: Installed all npm packages for frontend and backend
@@ -120,10 +148,20 @@ cd backend && npx tsc
 ```
 
 ## Database Information
-- **Type**: MongoDB
+
+### MongoDB
+- **Type**: MongoDB (via Mongoose)
 - **Location**: Local instance at 127.0.0.1:27017
 - **Database Name**: link_platform
 - **Collections**: users, links, counters
+- **Data stored in**: /tmp/mongodb/ (temporary storage, will not persist across repl restarts)
+
+### MariaDB
+- **Type**: MariaDB 10.11
+- **Location**: Unix socket at /tmp/mariadb.sock
+- **Database Name**: link_platform
+- **Tables**: users, links
+- **Data stored in**: /tmp/mariadb/ (temporary storage, will not persist across repl restarts)
 
 ## Known Limitations
 1. Google OAuth is disabled in development without credentials
