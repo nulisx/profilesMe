@@ -47,6 +47,31 @@ Drugs.Rip is a profile builder platform similar to `guns.lol` that allows users 
 
 ## Recent Changes
 
+### November 13, 2025 - Vercel Deployment Ready
+1. **Fixed Import Issues**:
+   - ✅ Moved `p.png` from public to assets folder
+   - ✅ Updated ProfilePage.tsx import to use `@/assets/p.png`
+   - ✅ Resolved all Vite "Assets in public directory" warnings
+
+2. **Vercel Deployment Configuration**:
+   - Created comprehensive `DEPLOYMENT.md` guide with step-by-step instructions
+   - Created root `vercel.json` for monorepo deployment
+   - Added `build` and `vercel-build` scripts to both frontend and backend package.json
+   - Created `QUICKSTART.md` for quick reference
+
+3. **Database Setup**:
+   - Created Replit PostgreSQL database (available for future migration)
+   - Environment variables: DATABASE_URL, PGPORT, PGUSER, PGPASSWORD, PGDATABASE, PGHOST
+
+4. **App Status - FULLY WORKING**: 
+   - ✅ Frontend: Vite dev server running on port 5000
+   - ✅ Backend: Express API running on port 3000
+   - ✅ MongoDB: Connected and running
+   - ✅ MariaDB: Connected and running
+   - ✅ Accessible via Replit dev domain webview
+   - ✅ Vercel Analytics integrated and firing pageview events
+   - ✅ HMR (Hot Module Reload) working
+
 ### November 12, 2025 - Project Import Completed
 1. **Node.js Installation**: Node.js 20 was already installed
 2. **Database Setup**:

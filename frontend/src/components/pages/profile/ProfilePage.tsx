@@ -13,7 +13,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { API_URL } from '@/services/api';
-import logo from '../../../../public/p.png'
+import logo from '@/assets/p.png'
 interface UserProfile {
   id: number;
   username: string;
